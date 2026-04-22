@@ -18,7 +18,7 @@ Una plataforma web PWA minimalista y “cozy” donde los usuarios construyen, s
 Clone the repository:
 
 ```bash
-git clone https://github.com/shadcn/ui.shadcn.com.git
+git clone git@github.com:smial-tech/rule-of-life.git
 ```
 
 Install the dependencies:
