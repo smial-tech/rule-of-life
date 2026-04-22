@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import Link from "next/link"
 
 export default function Page() {
   return (
@@ -13,6 +15,15 @@ export default function Page() {
         <div className="font-mono text-xs text-muted-foreground">
           (Press <kbd>d</kbd> to toggle dark mode)
         </div>
+        <Separator className="mt-8" />
+
+        <div>
+          <h2 className="font-medium">Example pages</h2>
+          <Button size={'sm'} variant={'link'} render={<Link href={'/dashboard'}>Dashboard</Link>} nativeButton={false}/>
+          <Button size={'sm'} variant={'link'} render={<Link href={'/login'}>Login</Link>} nativeButton={false}/>
+          <Button size={'sm'} variant={'link'} render={<Link href={'/sign-up'}>Sign up</Link>} nativeButton={false} />
+        </div>
+
       </div>
     </div>
   )
