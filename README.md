@@ -27,6 +27,15 @@ Install the dependencies:
 npm install
 #or
 pnpm install
+
+```
+
+### Configuration
+
+Copy the `.env.example` file to `.env` (create the file if not exists) and fill in the required environment variables:
+
+```bash
+cp .env.example .env
 ```
 
 ### Development
@@ -57,14 +66,32 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Zustand (https://zustand.docs.pmnd.rs/learn/getting-started/introduction)
 
 
-## Adding components from Shadcn UI
+## Project Architecture
 
-To add components to your app, run the following command:
+- app/ (App Router - Next.js specific files and router)
+- config/ (application config files - environment variables, constants)
+- modules/  (each module/feature codebase inside an specific feature folder)
+- - core/ ( general, global and shared files for other modules/features )
+- public/ (application assets)
+- database/ (database migrations ***DON'T TOUCH***)
 
-```bash
-npx shadcn@latest add button
-# or
-pnpm dlx shadcn add button
-```
 
-This will place the ui components in the `components` directory.
+## Pages
+  - Sign In ( Sign in page, allow users to sign in, auth is not required )
+  - Dashboard ( Dashboard page, our platform, auth is required )
+  - Onboarding ( Onboarding page, allow users to create their account, auth is required )
+  - Landing ( Marketing page, show the benefits of the product , auth is not required )
+
+
+## Scripts
+  - dev ( run the development server )
+  - build ( build the application for production )
+  - start ( start the production server )
+  - lint ( lint the code )
+  - format ( format the code )
+  - typecheck ( type check the code )
+  - db:start ( start a docker local database )
+  - db:stop ( stop the docker local database )
+  - db:studio ( open the database studio )
+  - db:generate ( generate a migration file )
+  - db:migrate ( migrate the database using the migration file )

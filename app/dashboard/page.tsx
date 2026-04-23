@@ -1,13 +1,24 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-import { DataTable } from "@/components/data-table"
-import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/modules/core/components/layout/app-sidebar"
+import { ChartAreaInteractive } from "@/modules/core/components/layout/chart-area-interactive"
+import { DataTable } from "@/modules/core/components/layout/data-table"
+import { SectionCards } from "@/modules/core/components/layout/section-cards"
+import { SiteHeader } from "@/modules/core/components/layout/site-header"
+import { SidebarInset, SidebarProvider } from "@/modules/core/components/ui/sidebar"
 
 import data from "./data.json"
+import { auth } from "@/modules/core/auth"
+import { redirect } from "next/navigation"
+import { headers } from "next/headers";
 
-export default function Page() {
+export default async function Page() {
+  // Check if user is authenticated
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  })
+  if (!session) {
+    return redirect("/sign-in")
+  }
+
   return (
     <SidebarProvider
       style={
